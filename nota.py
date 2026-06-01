@@ -1,0 +1,31 @@
+
+class Aluno:
+    def __init__(self):
+        self.notas = []
+
+    def cadastrar_nota(self, nota):
+        if nota < 0 or nota > 10:
+            raise ValueError("Nota inválida")
+
+        self.notas.append(nota)
+
+    def calcular_media(self):
+        if len(self.notas) == 0:
+            return 0
+
+        return sum(self.notas) / len(self.notas)
+
+    def verificar_situacao(self):
+        media = self.calcular_media()
+
+        if media >= 7:
+            return "Aprovado"
+
+        elif media >= 5:
+            return "Recuperação"
+
+        else:
+            return "Reprovado"
+
+
+
